@@ -14,13 +14,18 @@ jobs:
     name: "Setup Node"
     steps:
       - uses: actions/checkout@v3
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
           always-auth: false
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
         run: npm install
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "Run issue sync to Notion"
         env:
@@ -30,3 +35,5 @@ jobs:
           REPO_OWNER: ${{ secrets.REPO_OWNER }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
         run: node index.js
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
