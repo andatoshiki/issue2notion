@@ -1,0 +1,22 @@
+{
+  "name": "issue2notion",
+  "version": "0.0.1",
+  "description": "Sync github issues to notion database using workflow!",
+  "main": "index.js",
+  "repository": "git@github.com:andatoshiki/issue2notion.git",
+  "author": "andatoshiki <a_toshiki@outlook.com>",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": ""
+  },
+  "dependencies": {
+    "@notionhq/client": "^0.4.2",
+    "lodash": "^4.17.21",
+    "octokit": "^1.1.0"
+  }
+}
