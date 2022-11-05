@@ -18,4 +18,5 @@ jobs:
           echo NOTION_DATABASE_ID=${{ secrets.NOTION_DATABASE_ID }} >> .env
           echo REPO_OWNER=${{ secrets.REPO_OWNER }} >> .env
           echo REPO_NAME=${{ secrets.REPO_NAME }} >> .env
+          npm i
           node index.js
