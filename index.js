@@ -99,7 +99,7 @@ async function getGitHubIssuesForRepository() {
   const iterator = octokit.paginate.iterator(octokit.rest.issues.listForRepo, {
     owner: process.env.REPO_OWNER,
     repo: process.env.REPO_NAME,
-    state: "all",
+    state: "open",
     per_page: 100,
   })
   for await (const { data } of iterator) {
