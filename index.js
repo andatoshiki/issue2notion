@@ -9,7 +9,7 @@ const { Client } = require("@notionhq/client")
 const { Octokit } = require("octokit")
 const _ = require("lodash")
 
-const octokit = new Octokit({ auth: process.env.PERSONAL_GITHUB_ACCESS_KEY })
+const octokit = new Octokit({ auth: process.env.GITHUB_KEY })
 const notion = new Client({ auth: process.env.NOTION_KEY })
 
 const databaseId = process.env.NOTION_DATABASE_ID
