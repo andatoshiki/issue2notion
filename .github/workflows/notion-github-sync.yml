@@ -7,7 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: "Set up Node"
+    environment: issue2notion
+    name: "Setup Node"
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
