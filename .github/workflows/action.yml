@@ -18,7 +18,6 @@ jobs:
         with:
           node-version: 16.x
           always-auth: false
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
         run: npm install
@@ -31,3 +30,5 @@ jobs:
           REPO_OWNER: ${{ secrets.REPO_OWNER }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
         run: node index.js
+        with:
+          repo-token: ${{ secrets.RATE_TOKEN }}
