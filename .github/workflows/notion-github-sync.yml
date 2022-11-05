@@ -1,3 +1,4 @@
+name: issue2notion issue sync
 on:
   issues:
     types: [opened, reopened, closed, deleted]
@@ -6,12 +7,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: "Set up  Node"
+    name: "Set up Node"
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
+          always-auth: false
+
       - name: Install dependencies
         run: npm install
 
