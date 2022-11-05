@@ -6,23 +6,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: "Run github issue notion sync"
+    name: "Set up  Node"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-      - name: stup env
+      - name: Install dependencies
         run: npm install
 
-      - name: "Create env file"
-        run: |
-          touch .env
-          echo PERSONAL_GITHUB_ACCESS_KEY=${{ secrets.PERSONAL_GITHUB_ACCESS_KEY }} >> .env
-          echo NOTION_KEY=${{ secrets.NOTION_KEY }} >> .env
-          echo NOTION_DATABASE_ID=${{ secrets.NOTION_DATABASE_ID }} >> .env
-          echo REPO_OWNER=${{ secrets.REPO_OWNER }} >> .env
-          echo REPO_NAME=${{ secrets.REPO_NAME }} >> .env
-
-      - name: "Start sync"
+      - name: "Run issue sync to Notion"
+        env:
+          GITHUB_KEY: ${{ secrets.GITHUB_KEY }}
+          NOTION_KEY: ${{ secrets.NOTION_KEY }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}$
+          GITHUB_REPO_OWNER: ${{ secrets.GITHUB_REPO_OWNER }}
+          GITHUB_REPO_NAME: ${{ secrets.GITHUB_REPO_NAME }}
         run: node index.js
