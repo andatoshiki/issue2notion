@@ -1,8 +1,11 @@
 name: issue2notion issue sync
+
 on:
   issues:
     types: [opened, reopened, closed, deleted]
   push:
+  schedule:
+    - cron: '0 */2 * * *'
 
 jobs:
   build:
