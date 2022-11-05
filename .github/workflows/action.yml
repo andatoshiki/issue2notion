@@ -5,7 +5,7 @@ on:
     types: [opened, reopened, closed, deleted]
   push:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 * * * *'
 
 jobs:
   build:
